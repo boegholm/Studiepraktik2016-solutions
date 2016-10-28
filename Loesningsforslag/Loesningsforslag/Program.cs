@@ -43,18 +43,27 @@ namespace Loesningsforslag
             //  - vi skal fortælle computeren præcist hvad vi mener,
             //    ellers laver den heltals-division!
             double hitrate = (double)hits / (double)(hits + misses);
-            double piApproximation = 4.0*hitrate;
+
+            // Arealet af firkanten omkring enhedscirklen er 4
+            // hitrate er den statistiske sandsynlighed for at ramme
+            // inden for cirklen (se evt. slides)
+            double piApproximation = 4.0*hitrate; 
             Console.WriteLine("Efter "+iterations+ " iterationer:");
             Console.WriteLine(" Approximation af pi: "+piApproximation);
+            
             // Math.Abs er den absolutte værdi
             // Math.PI er en indbygget værdi af PI
             // Vi ganger med 100.0 for at få resultatet i %
             double nøjagtighed = (1.0 - Math.Abs(piApproximation/Math.PI - 1.0))*100.0;
-            Console.WriteLine(" Præcision af pi-approximation: "+nøjagtighed);
+
+            // Nedenstående notation bruges til at fortælle hvor mange
+            // decimaler jeg vil have på mit tal
+            Console.WriteLine($" Præcision af pi-approximation: {nøjagtighed:.0000}%");
             Console.ReadLine();
         }
 
 
+        // funktionen fra slides
         static int ReadInt()//Læser strenge indtil input er et tal
         {
             int resultat; // her gemmer vi resultatet 
@@ -68,6 +77,5 @@ namespace Loesningsforslag
             }
             return resultat; // returnér resultatet!
         }
-
     }
 }
